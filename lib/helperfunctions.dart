@@ -1,7 +1,135 @@
 import 'package:flutter/material.dart';
+import 'package:loan_management_system/constants.dart';
 
 class Helperfunctions {
   Helperfunctions();
+  Drawer myDrawer() {
+    return Drawer(
+      width: 200,
+      child: Container(
+        color: Colors.white,
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Apply for loan',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Make payment',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Payment History',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Loan status',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'My profile',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Variables.color1,
+                      border: Border.all(color: Variables.color1, width: 2),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Loan calculator',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget NormalInput(BuildContext context, Color bordercolor) {
     return Center(
       child: Container(

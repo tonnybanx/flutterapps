@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:loan_management_system/applyloan.dart';
 import 'package:loan_management_system/constants.dart';
 
 class HomeTab extends StatefulWidget {
@@ -38,6 +37,7 @@ class _HomeTabState extends State<HomeTab> {
     QuickAction('My Profile', 'image 4.jpg'),
     QuickAction('Loan Calculator', 'Calculator.jpg')
   ];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -105,58 +105,7 @@ class _HomeTabState extends State<HomeTab> {
                                               mainAxisSpacing: 10),
                                       itemCount: 6,
                                       itemBuilder: (context, index) {
-                                        return Container(
-                                          width: 100,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                              color: Variables.color1,
-                                              border: Border.all(
-                                                  color: Colors.white,
-                                                  width: 2),
-                                              borderRadius:
-                                                  BorderRadius.circular(15)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 10.0),
-                                                child: Container(
-                                                  width: 30,
-                                                  height: 30,
-                                                  decoration: BoxDecoration(
-                                                      image: DecorationImage(
-                                                          fit: BoxFit.cover,
-                                                          image: AssetImage(
-                                                              'assets/images/${quickActions[index].image_name}'))),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 5),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      quickActions[index]
-                                                          .action,
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 10,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        );
+                                        return quickActionManager(index);
                                       }),
                                 ),
                               ],
@@ -198,6 +147,57 @@ class _HomeTabState extends State<HomeTab> {
                 ),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  GestureDetector quickActionManager(int index) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Applyloan()));
+      },
+      child: Container(
+        width: 100,
+        height: 100,
+        decoration: BoxDecoration(
+            color: Variables.color1,
+            border: Border.all(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(15)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                            'assets/images/${quickActions[index].image_name}'))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    quickActions[index].action,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

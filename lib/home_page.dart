@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Widget> tabs = [SupportTab(), HomeTab(), SettingsTab()];
+  int currentIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,27 +156,35 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.support,
-              color: Colors.black,
-            ),
-            label: 'Support'),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
-            label: 'Home'),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.black,
-            ),
-            label: 'Settings'),
-      ]),
-      body: SupportTab(),
+      bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.support,
+                  color: Colors.black,
+                ),
+                label: 'Support'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.black,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.settings,
+                  color: Colors.black,
+                ),
+                label: 'Settings'),
+          ]),
+      body: tabs[currentIndex],
     );
   }
 }
