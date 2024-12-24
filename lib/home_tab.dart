@@ -163,7 +163,7 @@ class _HomeTabState extends State<HomeTab> {
         width: 100,
         height: 100,
         decoration: BoxDecoration(
-            color: Variables.color1,
+            color: Colors.white,
             border: Border.all(color: Colors.white, width: 2),
             borderRadius: BorderRadius.circular(15)),
         child: Column(
@@ -191,7 +191,7 @@ class _HomeTabState extends State<HomeTab> {
                   Text(
                     quickActions[index].action,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 10,
                     ),
                   ),

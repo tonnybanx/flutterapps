@@ -13,7 +13,6 @@ class CredentialsPage extends StatefulWidget {
 
 class _CredentialsPageState extends State<CredentialsPage> {
   bool _isPasswordVisible = false;
-  bool _isHovered = false; // Tracks hover state
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -266,24 +265,17 @@ class _CredentialsPageState extends State<CredentialsPage> {
                           "Don't have an account?",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
-                        MouseRegion(
-                          onEnter: (_) =>
-                              setState(() => _isHovered = true), // On hover
-                          onExit: (_) =>
-                              setState(() => _isHovered = false), // Off hover
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CreateAccount()),
-                              );
-                            },
-                            child: Text(
-                              ' Register',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CreateAccount()),
+                            );
+                          },
+                          child: Text(
+                            ' Register',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         )
                       ],

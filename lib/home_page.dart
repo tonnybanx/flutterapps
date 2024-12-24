@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loan_management_system/constants.dart';
+import 'package:loan_management_system/helperfunctions.dart';
 import 'package:loan_management_system/home_tab.dart';
+import 'package:loan_management_system/notifications.dart';
 import 'package:loan_management_system/settings_tab.dart';
 import 'package:loan_management_system/support_tab.dart';
 
@@ -14,133 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<Widget> tabs = [SupportTab(), HomeTab(), SettingsTab()];
   int currentIndex = 1;
+  Helperfunctions helperfunctions = Helperfunctions();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        width: 200,
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Apply for loan',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Make payment',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Payment History',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Loan status',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'My profile',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Variables.color1,
-                        border: Border.all(color: Variables.color1, width: 2),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Loan calculator',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ],
-                    )),
-              ),
-            ],
-          ),
-        ),
-      ),
+      drawer: helperfunctions.myDrawer(context),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
         backgroundColor: Variables.color1,
@@ -150,7 +30,10 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Notifications()));
+            },
             icon: Icon(Icons.notifications),
             color: Colors.white,
           )

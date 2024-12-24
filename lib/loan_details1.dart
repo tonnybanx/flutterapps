@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loan_management_system/constants.dart';
 import 'package:loan_management_system/helperfunctions.dart';
 import 'package:loan_management_system/loan_details2.dart';
+import 'package:loan_management_system/support_document1.dart';
 
 class LoanDetails1 extends StatefulWidget {
   const LoanDetails1({super.key});
@@ -25,7 +26,7 @@ class _LoanDetails1State extends State<LoanDetails1> {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: myhelper.myDrawer(),
+      drawer: myhelper.myDrawer(context),
       appBar: AppBar(
         foregroundColor: Colors.white,
         backgroundColor: Variables.color1,
@@ -37,6 +38,7 @@ class _LoanDetails1State extends State<LoanDetails1> {
       body: Container(
         width: screenwidth,
         height: screenheight,
+        color: Colors.white,
         child: Column(
           children: [
             Expanded(
@@ -108,16 +110,24 @@ class _LoanDetails1State extends State<LoanDetails1> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        'Back',
-                        style: TextStyle(color: Colors.white),
-                      )),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Variables.color1,
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(1),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Back',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                    ),
+                  ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Variables.color1),
@@ -125,7 +135,7 @@ class _LoanDetails1State extends State<LoanDetails1> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoanDetails2()));
+                                builder: (context) => SupportDocument1()));
                       },
                       child: Text(
                         'Next',
@@ -171,7 +181,8 @@ class _LoanDetails1State extends State<LoanDetails1> {
             height: 40,
             decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(color: Colors.red, width: 2)),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey, width: 1)),
             child: Padding(
               padding: const EdgeInsets.only(
                 left: 10,
@@ -179,6 +190,7 @@ class _LoanDetails1State extends State<LoanDetails1> {
               ),
               child: TextField(
                 decoration: InputDecoration(
+                    border: InputBorder.none,
                     hintText: hintmessage,
                     hintStyle: TextStyle(
                         color: const Color.fromARGB(255, 183, 187, 187))),

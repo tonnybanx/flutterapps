@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:loan_management_system/constants.dart';
 import 'package:loan_management_system/credentials_page.dart';
 import 'package:loan_management_system/helperfunctions.dart';
-import 'package:loan_management_system/main.dart';
 import 'package:loan_management_system/transition.dart';
 
 class SecurityQuestions extends StatefulWidget {

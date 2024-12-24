@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:loan_management_system/application_done.dart';
+import 'package:loan_management_system/application_loan_summary.dart';
 import 'package:loan_management_system/constants.dart';
-import 'package:loan_management_system/home_page.dart';
 
 class LoanDetails2 extends StatefulWidget {
   const LoanDetails2({super.key});
@@ -11,7 +12,7 @@ class LoanDetails2 extends StatefulWidget {
 }
 
 class _LoanDetails2State extends State<LoanDetails2> {
-  String WholeText =
+  String wholeText =
       "I hereby authorize Equity Bank Uganda Staff Sacco ltd to deduct the principal amount interest and pay any charges relating to me including guaranteed loans from my salary in accordance with repayment terms of the loan granted following this application";
   bool isExpanded = false;
   List<String> options = ['Confirm', 'Do not confirm'];
@@ -32,6 +33,7 @@ class _LoanDetails2State extends State<LoanDetails2> {
       body: Container(
         width: screenwidth,
         height: screenheight,
+        color: Colors.white,
         child: Column(
           children: [
             Expanded(
@@ -65,7 +67,7 @@ class _LoanDetails2State extends State<LoanDetails2> {
                         ),
                         RichText(
                             text: TextSpan(
-                                text: displayText(WholeText, isExpanded),
+                                text: displayText(wholeText, isExpanded),
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 16),
                                 children: [
@@ -112,27 +114,36 @@ class _LoanDetails2State extends State<LoanDetails2> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blueGrey),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text(
-                        'Back',
-                        style: TextStyle(color: Colors.white),
-                      )),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Variables.color1,
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(1),
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'Back',
+                            style: TextStyle(color: Colors.black),
+                          )),
+                    ),
+                  ),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Variables.color1),
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePage()));
+                                builder: (context) =>
+                                    ApplicationLoanSummary()));
                       },
                       child: Text(
-                        'Submit',
+                        'Next',
                         style: TextStyle(color: Colors.white),
                       ))
                 ],
@@ -148,7 +159,10 @@ class _LoanDetails2State extends State<LoanDetails2> {
     return RadioListTile(
         title: Text(
           options[index],
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+          ),
         ),
         value: options[index],
         groupValue: selectedOption,
@@ -174,7 +188,7 @@ class _LoanDetails2State extends State<LoanDetails2> {
             height: 40,
             width: screenwidth,
             decoration: BoxDecoration(
-                border: Border.all(color: Variables.color1, width: 2),
+                border: Border.all(color: Colors.grey, width: 1),
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10)),
             child: Padding(
@@ -182,7 +196,7 @@ class _LoanDetails2State extends State<LoanDetails2> {
               child: TextField(
                 decoration: InputDecoration(
                     border: InputBorder.none, hintText: hintmessage),
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: TextStyle(color: Colors.black, fontSize: 16),
               ),
             ),
           )
